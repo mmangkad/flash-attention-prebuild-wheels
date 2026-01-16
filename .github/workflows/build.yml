@@ -8,7 +8,7 @@ on:
 jobs:
   create_releases:
     name: Create Releases
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Create Release
@@ -21,7 +21,7 @@ jobs:
 
   create_matrix:
     name: Create Matrix
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       matrix: ${{ steps.create_matrix.outputs.matrix }}
     steps:
@@ -75,7 +75,7 @@ jobs:
       python-version: ${{ matrix.python-version }}
       torch-version: ${{ matrix.torch-version }}
       cuda-version: ${{ matrix.cuda-version }}
-      runner: "ubuntu-22.04-arm"
+      runner: "ubuntu-24.04-arm"
     secrets: inherit
 
   # ################ Self-hosted runner ################
@@ -203,7 +203,7 @@ jobs:
       - build_wheels_windows_code_build
       - build_wheels_windows_self_hosted
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -235,7 +235,7 @@ jobs:
     permissions:
       contents: write
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}

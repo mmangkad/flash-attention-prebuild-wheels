@@ -27,7 +27,7 @@ on:
         description: "Runner type"
         required: false
         type: string
-        default: "ubuntu-22.04"
+        default: "ubuntu-24.04"
       is-upload:
         description: "Whether to upload the release asset"
         required: false

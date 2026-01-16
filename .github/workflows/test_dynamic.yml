@@ -6,7 +6,7 @@ on:
 jobs:
   create_matrix:
     name: Create Matrix
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       matrix: ${{ steps.create_matrix.outputs.matrix }}
     steps:
@@ -22,7 +22,7 @@ jobs:
   # #########################################################
   build_wheels_linux:
     name: Build Linux
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [create_matrix]
     if: ${{ fromjson(needs.create_matrix.outputs.matrix).linux }}
     strategy:
@@ -43,7 +43,7 @@ jobs:
 
   build_wheels_linux_self_hosted:
     name: Build Linux (self-hosted)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [create_matrix]
     if: ${{ fromjson(needs.create_matrix.outputs.matrix).linux_self_hosted }}
     strategy:
@@ -70,7 +70,7 @@ jobs:
     permissions:
       contents: write
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
