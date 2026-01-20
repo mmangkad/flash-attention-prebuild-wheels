@@ -28,9 +28,6 @@ TORCH_CUDA_VERSION=$(python get_torch_cuda_version.py $MATRIX_CUDA_VERSION $MATR
 echo "Installing PyTorch $TORCH_VERSION+cu$TORCH_CUDA_VERSION..."
 if [[ $TORCH_VERSION == *"dev"* ]]; then
   pip install --force-reinstall --no-cache-dir --pre torch==$TORCH_VERSION --index-url https://download.pytorch.org/whl/nightly/cu${TORCH_CUDA_VERSION}
-elif [[ $TORCH_VERSION == "2.10.0" ]]; then
-  # TODO: remove test index once 2.10.0 wheels are officially released.
-  pip install --force-reinstall --no-cache-dir torch==$TORCH_VERSION --index-url https://download.pytorch.org/whl/test/cu${TORCH_CUDA_VERSION}
 else
   pip install --force-reinstall --no-cache-dir torch==$TORCH_VERSION --index-url https://download.pytorch.org/whl/cu${TORCH_CUDA_VERSION}
 fi
