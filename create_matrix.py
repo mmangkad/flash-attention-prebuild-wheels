@@ -4,8 +4,6 @@ EXCLUDE = [
     # torch < 2.2 does not support Python 3.12
     {"python-version": "3.12", "torch-version": "2.0.1"},
     {"python-version": "3.12", "torch-version": "2.1.2"},
-    # TODO: Temporary exclusion - already built in v0.7.6
-    {"python-version": "3.12", "torch-version": "2.9.1", "cuda-version": "12.8"},
     # torch 2.0.1 does not support CUDA 12.x
     {"torch-version": "2.0.1", "cuda-version": "12.1"},
     {"torch-version": "2.0.1", "cuda-version": "12.4"},
@@ -61,8 +59,8 @@ LINUX_MATRIX = {
         "12.4",
         "12.6",
         "12.8",
-        # "12.9",
-        # "13.0",
+        "12.9",
+        "13.0",
     ],
 }
 
